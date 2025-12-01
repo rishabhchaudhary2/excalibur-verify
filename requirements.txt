@@ -1,0 +1,4 @@
+aiohttp~=3.9.1
+Scrapy~=2.11.1
+transformers~=4.38.2
+sentence-transformers

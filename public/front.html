@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriFy</title>
+    <link rel="stylesheet" href="/public/stylefront.css">
+    <script src="https://kit.fontawesome.com/e0ab3c7295.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Madimi+One&family=Protest+Riot&family=Rowdies:wght@300;400;700&family=Titan+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Madimi+One&family=Protest+Riot&family=Rowdies:wght@300;400;700&family=Salsa&family=Titan+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Days+One&family=Francois+One&family=Madimi+One&family=Protest+Riot&family=Roboto+Slab:wght@100..900&family=Rowdies:wght@300;400;700&family=Salsa&family=Titan+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="logo"><img src="/public/verify-high-resolution-logo-transparent (2).png" alt="" height="80px"
+                           width="180px">
+    </div>
+    <div class="navi">
+        <div><a style="color: black; text-decoration: none" href="#About">
+            About Us
+        </a></div>
+        <div><a style="color: black; text-decoration: none" href="#contact-us">
+            Contact
+        </a></div>
+        <div><a style="color: black; text-decoration: none" href="#">
+            Help
+        </a></div>
+    </div>
+    <div class="social">
+        <ul>
+            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+</header>
+<div class="Welcome">
+    <div>
+        <h1 style="margin: 200px 0 0 70px; font-size: 60px;"> Welcome!</h1>
+        <div>Step into “The VeriFy”
+
+        </div>
+        <div>
+            What secrets will you discover today?
+        </div>
+        <div>
+            <a href="#to-start">
+                <button id="start" type="submit">To Start</button>
+            </a>
+        </div>
+    </div>
+    <div class="gif">
+        <img src="/public/4658364.jpg" alt="" height="500px" style="border-radius: 15px;">
+    </div>
+</div>
+<div style="height: 12px; width: 1503.2px; background-color: #ECECEA;" id="to-start"></div>
+<div id="app">
+    <h1 style=" font-size: 55px; font-family: Calistoga, serif; text-align: center; color:#ECECEA; margin-top: 100px; line-height: 20px; ">
+        YOUR TRUTH COMPASS</h1>
+    <h2 style=" font-size: 40px; font-family: Calistoga, serif;text-align: center; color:#ECECEA; ">Fact-Check Your
+        News</h2>
+    <div class="intruct"> In the text box below, type or paste the news article, headline, or snippet that you want to
+        verify.
+    </div>
+    <div v-if="mode === 'search'">
+        <div class="inputs">
+            <textarea v-model="searchVal" name="" id="" cols="100" rows="5"
+                      placeholder="Enter news content to search..."></textarea>
+        </div>
+        <button class="submit" @click="search">Submit</button>
+    </div>
+    <div class="intruct" v-else-if="mode === 'processing'">
+        Processing{{dots}}
+    </div>
+    <div class="intruct" v-else>
+        The news is a {{ resStatus.message }} news.<br>
+        <button style="margin-left: 0" class="submit" @click="reload">Check another news</button>
+    </div>
+
+</div>
+<div id="About">
+    <h1 style="font-size: 60px; margin-left: 10px; height: 50px; text-decoration: underline;  font-family: Calistoga, serif;   ">
+        ABOUT US</h1>
+    <div class="about1">
+        Welcome to Verify, your trusted source for debunking misinformation and combating the spread of fake news. Our
+        dedicated team of four passionate individuals from NIT Kurukshetra has come together to address the critical
+        issue of false information in today’s digital age.
+    </div>
+    <h1 style="font-size: 40px; margin-left: 10px; height: 30px; font-family: Salsa,cursive;">Our Mission</h1>
+    <div class="about1">
+        At Verify, we believe that accurate information is the cornerstone of a well-informed society. Our mission is to
+        empower users by providing reliable tools to verify news stories, fact-check claims, and separate truth from
+        fiction. By promoting media literacy and critical thinking, we aim to create a safer online environment for
+        everyone.
+    </div>
+
+    <h1 style="font-size: 40px;  margin-left: 10px;  font-family: Salsa,cursive;">Meet Our Team</h1>
+    <div id="team">
+        <div>
+            <b>HARSH VARDHAN</b> - Lead Developer <br> <br>
+            Harsh brings technical expertise and a passion for truth. He have developed the core features of our
+            platform.
+        </div>
+        <div>
+            <b>SAUMYA SIDOLA</b> - Content Curator <br><br>
+            Saumya scours the web for suspicious content, ensuring that only verified information reaches our users.
+            Their commitment to accuracy and thorough research is unmatched.
+        </div>
+        <div>
+            <b>SANJANA MEENA </b> - Community Outreach <br> <br>
+            Sanjana engages with our user community, conducts workshops, and spreads awareness about fake news
+            prevention. Her dedication to education and advocacy drives our impact.
+        </div>
+        <div>
+            <b>RISHAV RAJ</b>- Design & User Experience <br> <br>
+            Rishav ensures that our platform is user-friendly and visually appealing. His creative flair and attention
+            to detail enhance the overall experience for our users.
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+<div style="height: 12px; width: 1503.2px; background-color:#064780;"></div>
+
+<footer id="contact-us">
+    <h1 style="font-size: 60px; margin-left: 10px; height: 50px; text-decoration: underline;  font-family: Calistoga, serif;  ">
+        CONTACT US</h1>
+    <div class="contact">
+        <div class="Hourly">
+            <h2 style="font-size: 30px;  font-family: Salsa,cursive;">HOURLY</h2>
+            Mon to Fri:10 p.m-6 p.m.<br>
+            Saturday:11 a.m-3:30 p.m.<br>
+            Sunday:closed.<br>
+            <span class="fa-stack fa-lg" style="margin-top: 12px;">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                    
+                </span>
+            <span class="fa-stack fa-lg" style="margin-top: 12px;">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                   <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                </span>
+        </div>
+        <div class="Cdetails">
+            <h2 style="font-size: 30px;  font-family: Salsa,cursive;">CONTACT DETAILS</h2>
+            03.78.02.64.54<br>
+            NIT Kurukshetra Thanesar,Kurukshetra,<br>
+            Haryana,136119.<br>
+
+        </div>
+        <div class="GMAP">
+            <img src="/public/Screenshot 2024-03-07 194150.png" alt="" height="300px" width="500px">
+        </div>
+    </div>
+</footer>
+
+</body>
+<script src="/public/scripts.js"></script>
+</html>
